@@ -21,7 +21,8 @@ let lastSubmittedData = null;
 const STORAGE_KEY = "survey1020_draft_public_v2";
 const SUBMIT_KEY = "survey1020_submissions_public_v2";
 
-// Google Apps Script Web App URL. Paste the deployed /exec URL here.\nconst GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwhOK9pXkVF9NcfY8FjioYuky8XBC25ii87thrv08kUXfOHoCrrgPs2H-LJZlpQHfcs/exec";
+// Google Apps Script Web App URL
+const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwhOK9pXkVF9NcfY8FjioYuky8XBC25ii87thrv08kUXfOHoCrrgPs2H-LJZlpQHfcs/exec";
 
 function showStep(index) {
   currentStep = Math.max(0, Math.min(index, steps.length - 1));
@@ -273,7 +274,7 @@ form.addEventListener("submit", async event => {
     completeDialog.showModal();
   } catch (error) {
     console.error(error);
-    alert("응답 전송 설정이 아직 완료되지 않았습니다. Google Apps Script Web App URL을 확인해주세요.");
+    alert("응답 전송에 실패했습니다. 잠시 후 다시 시도해주세요.");
   } finally {
     submitBtn.disabled = false;
     submitBtn.textContent = originalText;

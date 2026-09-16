@@ -1,14 +1,9 @@
-# 1020 Survey — Google Sheets Connected Final
+# 1020 Survey — Centralized Responses Final
 
-Google Apps Script Web App URL이 실제 배포 주소로 연결된 최종 버전입니다.
+https://1020-survey.vercel.app/ 에서 제출된 모든 응답이 하나의 Google Sheet `응답` 탭에 누적되도록 연결된 버전입니다.
 
-Connected endpoint:
+연결된 Apps Script:
 https://script.google.com/macros/s/AKfycbwhOK9pXkVF9NcfY8FjioYuky8XBC25ii87thrv08kUXfOHoCrrgPs2H-LJZlpQHfcs/exec
 
-## 다음 단계
-1. 이 ZIP 압축 해제
-2. GitHub 저장소의 기존 파일들을 이 버전으로 교체
-3. Commit changes
-4. Vercel 자동 재배포 완료 대기
-5. https://1020-survey.vercel.app/ 에서 테스트 응답 제출
-6. Google Sheet의 `응답` 탭에 새 행이 생기는지 확인
+GitHub/Vercel에는 index.html, styles.css, script.js, package.json, vercel.json을 올리세요.
+Code.gs는 Google Apps Script 편집기에만 두면 됩니다.
