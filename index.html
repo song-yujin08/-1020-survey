@@ -4,17 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="1020의 시간·돈·감정 사용 경험 인터뷰 설문" />
-  <title>1020 시간·돈·감정 인터뷰</title>
+  <title>1020 — 시간·돈·감정</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="app-shell">
     <header class="topbar">
       <div class="brand">
-        <div class="brand-mark">1020</div>
+        <div class="brand-mark">10<br>20</div>
         <div>
           <p class="eyebrow">INTERVIEW STUDY</p>
           <h1>시간 · 돈 · 감정</h1>
@@ -165,6 +166,17 @@
               <label>Q7. 생각보다 시간을 오래 쓰게 되는 것이 있나요?</label>
               <textarea name="timeSink" rows="5" placeholder="무엇인지, 왜 계속하게 되는지, 끝난 뒤 기분은 어떤지 적어주세요."></textarea>
             </div>
+
+            <div class="reflection-card">
+              <span class="reflection-index">THINK 01</span>
+              <p>만약 그 앱이나 행동을 <strong>일주일 동안 못 하게 된다면</strong>, 가장 아쉬울 것 같은 건 무엇인가요?</p>
+              <textarea name="timeLossFeeling" rows="4" placeholder="예: 친구들이 무슨 얘기하는지 놓칠 것 같음 / 심심할 것 같음 / 오히려 편할 것 같음"></textarea>
+            </div>
+
+            <div class="field">
+              <label>Q7-1. 시간을 많이 쓰는 걸 알면서도 계속하게 되는 이유는 뭐라고 생각하나요?</label>
+              <textarea name="timeContinueWhy" rows="4" placeholder="재미, 습관, 친구, 정보, 불안, 성취감 등 어떤 이유든 괜찮습니다."></textarea>
+            </div>
           </section>
 
           <!-- STEP 3 -->
@@ -220,6 +232,17 @@
               <label>Q11. 사고 싶지만 아직 안 산 것이 있나요?</label>
               <textarea name="wishlistBarrier" rows="5" placeholder="무엇인지 / 왜 갖고 싶은지 / 왜 아직 안 샀는지"></textarea>
             </div>
+
+            <div class="reflection-card">
+              <span class="reflection-index">THINK 02</span>
+              <p>최근 산 것 중에 <strong>“안 샀으면 계속 생각났을 것 같다”</strong>고 느끼는 게 있나요?</p>
+              <textarea name="mustBuyFeeling" rows="4" placeholder="있다면 무엇이고, 왜 그렇게까지 갖고 싶었는지 적어주세요."></textarea>
+            </div>
+
+            <div class="field">
+              <label>Q11-1. 그 물건을 산 뒤, 실제로 기대했던 만큼 만족했나요?</label>
+              <textarea name="postPurchaseEmotion" rows="4" placeholder="만족했다면 무엇이 좋았는지 / 아쉬웠다면 어떤 점이 달랐는지"></textarea>
+            </div>
           </section>
 
           <!-- STEP 4 -->
@@ -251,6 +274,17 @@
                 <label><input type="checkbox" name="shareReasons" value="대화 시작" /> 대화를 시작하려고</label>
               </div>
               <textarea name="sharedContentExample" rows="3" placeholder="최근 공유한 콘텐츠 예시가 있다면 적어주세요."></textarea>
+            </div>
+
+            <div class="reflection-card">
+              <span class="reflection-index">THINK 03</span>
+              <p>친구에게 뭔가를 보냈는데 <strong>반응이 없으면</strong> 기분이 어떤가요?</p>
+              <textarea name="noReactionFeeling" rows="4" placeholder="신경 쓰이지 않음 / 조금 민망함 / 서운함 / 다음에는 안 보낼 것 같음 등"></textarea>
+            </div>
+
+            <div class="field">
+              <label>Q14-1. 요즘 가장 자주 느끼는 감정 하나를 고른다면 무엇인가요?</label>
+              <textarea name="dominantEmotion" rows="4" placeholder="예: 설렘, 지루함, 불안, 피곤함, 기대감, 성취감 — 언제 주로 느끼는지도 적어주세요."></textarea>
             </div>
           </section>
 
@@ -285,6 +319,22 @@
             <div class="field">
               <label>Q19. 반대로 불편하거나 짜증나는 순간은? <span class="req">*</span></label>
               <textarea name="painPoint" rows="4" placeholder="그리고도 계속 사용하는 이유가 있다면 함께 적어주세요." required></textarea>
+            </div>
+
+            <div class="field">
+              <label>Q19-1. 그 불편함이 있는데도 계속 쓰는 가장 큰 이유는 무엇인가요?</label>
+              <textarea name="despitePainReason" rows="4" placeholder="다른 대안이 없어서 / 친구들이 써서 / 익숙해서 / 보상이 더 커서 등"></textarea>
+            </div>
+
+            <div class="reflection-card">
+              <span class="reflection-index">THINK 04</span>
+              <p>이 행동이나 서비스가 지금의 나에게 <strong>왜 중요한지</strong> 한 문장으로 말한다면?</p>
+              <textarea name="whyImportant" rows="4" placeholder="예: 친구들과 연결돼 있다는 느낌을 줘서 / 내가 잘하고 있다는 느낌을 줘서 / 하루 중 가장 편하게 쉬는 시간이어서"></textarea>
+            </div>
+
+            <div class="field">
+              <label>Q19-2. 만약 이 경험에서 딱 한 가지를 바꿀 수 있다면 무엇을 바꾸고 싶나요?</label>
+              <textarea name="oneChange" rows="4" placeholder="기능, 가격, 추천 방식, 친구 관계, 사용 시간 등 무엇이든 괜찮습니다."></textarea>
             </div>
           </section>
 
@@ -330,6 +380,11 @@
               <div class="field compact wide">
                 <label>🙂 사실 내가 가장 신경 쓰고 있는 것 <span class="req">*</span></label>
                 <textarea name="topEmotion" rows="5" placeholder="예: 친구 관계, 외모, 성적, 실력 향상, 취업 준비 등" required></textarea>
+              </div>
+
+              <div class="field compact wide">
+                <label>마지막 질문. 요즘 내가 가장 원하는 변화는 무엇인가요?</label>
+                <textarea name="desiredChange" rows="5" placeholder="시간을 덜 낭비하고 싶다 / 더 잘하고 싶다 / 친구들과 더 가까워지고 싶다 / 돈을 아끼고 싶다 등"></textarea>
               </div>
             </div>
 
