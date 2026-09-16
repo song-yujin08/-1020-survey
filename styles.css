@@ -1374,3 +1374,27 @@ textarea:focus {
     max-width: none;
   }
 }
+
+
+/* Minimal header wordmark */
+.brand-minimal {
+  display: flex;
+  align-items: center;
+}
+
+.brand-wordmark {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  color: #111;
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .brand-wordmark {
+    font-size: 15px;
+    letter-spacing: -0.03em;
+  }
+}
