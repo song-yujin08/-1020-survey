@@ -18,8 +18,10 @@ const completeDialog = document.getElementById("completeDialog");
 let currentStep = 0;
 let lastSubmittedData = null;
 
-const STORAGE_KEY = "survey1020_draft_v1";
-const SUBMIT_KEY = "survey1020_submissions_v1";
+const STORAGE_KEY = "survey1020_draft_public_v2";
+const SUBMIT_KEY = "survey1020_submissions_public_v2";
+
+// Google Apps Script Web App URL. Paste the deployed /exec URL here.\nconst GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwhOK9pXkVF9NcfY8FjioYuky8XBC25ii87thrv08kUXfOHoCrrgPs2H-LJZlpQHfcs/exec";
 
 function showStep(index) {
   currentStep = Math.max(0, Math.min(index, steps.length - 1));
@@ -232,17 +234,50 @@ form.addEventListener("change", () => {
   window.__saveTimer = setTimeout(saveDraft, 250);
 });
 
-form.addEventListener("submit", event => {
+
+async function sendToGoogleSheets(data) {
+  if (!GOOGLE_APPS_SCRIPT_URL || GOOGLE_APPS_SCRIPT_URL.includes("PASTE_GOOGLE")) {
+    throw new Error("Google Apps Script URL is not configured.");
+  }
+
+  // text/plain + no-cors avoids browser preflight issues with Apps Script Web Apps.
+  // The response is intentionally opaque, but the POST request is delivered.
+  await fetch(GOOGLE_APPS_SCRIPT_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "text/plain;charset=utf-8"
+    },
+    body: JSON.stringify(data)
+  });
+}
+
+form.addEventListener("submit", async event => {
   event.preventDefault();
   if (!validateStep()) return;
+
+  const originalText = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = "제출 중…";
 
   const data = serializeForm();
   data.submittedAt = new Date().toISOString();
 
-  saveSubmission(data);
-  lastSubmittedData = data;
-  localStorage.removeItem(STORAGE_KEY);
-  completeDialog.showModal();
+  try {
+    await sendToGoogleSheets(data);
+
+    // Keep a local backup as well.
+    saveSubmission(data);
+    lastSubmittedData = data;
+    localStorage.removeItem(STORAGE_KEY);
+    completeDialog.showModal();
+  } catch (error) {
+    console.error(error);
+    alert("응답 전송 설정이 아직 완료되지 않았습니다. Google Apps Script Web App URL을 확인해주세요.");
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+  }
 });
 
 navItems.forEach(item => {
@@ -300,6 +335,14 @@ document.getElementById("downloadCsv").addEventListener("click", () => {
 document.getElementById("closeDialog").addEventListener("click", () => {
   completeDialog.close();
 });
+
+
+// One-time cleanup for legacy local drafts from development/test versions.
+// This affects only the current visitor's browser and never other users.
+[
+  "survey1020_draft_v1",
+  "survey1020_submissions_v1"
+].forEach(key => localStorage.removeItem(key));
 
 restoreDraft();
 showStep(0);
