@@ -1,0 +1,10 @@
+{
+  "name": "1020-survey",
+  "version": "1.0.0",
+  "private": true,
+  "description": "1020 시간·돈·감정 인터뷰 설문",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  }
+}
