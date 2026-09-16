@@ -1,19 +1,38 @@
-# 1020 Survey — SUIT Webfont Connected
+# 1020 Survey — Final Polished Version
 
-SUIT 공식 저장소에서 안내하는 jsDelivr 웹폰트 CSS를 연결한 버전입니다.
+최종 배포 전 UI/타이포를 정리한 버전입니다.
 
-## 연결 방식
-```html
-<link
-  href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css"
-  rel="stylesheet">
-```
+## Typography system
+- Display headline: SUIT Semibold 600
+- Question labels / body / input / buttons: SUIT
+- Green micro labels: Helvetica, letter-spacing -2%
+- Fallback: Pretendard → system sans
 
-## 적용
-- 대형 헤드라인: SUIT Semibold (600)
-- 초록색 소형 마이크로 타이포: 기존 Helvetica / -2% 자간 유지
-- SUIT 로드 실패 시 Pretendard → 시스템 폰트 순서로 fallback
+## Mobile improvements
+- Hero title uses controlled two-line structure
+- Smaller mobile headline scale and tighter max-width
+- Balanced section-title wrapping
+- iOS input zoom prevention (16px minimum)
+- Larger touch targets for checkbox/radio options
+- Safe-area padding for sticky bottom actions
+- Extra-narrow layout tuning under 380px
 
-## 배포
-기존 GitHub 저장소에서 이 버전의 파일들로 교체 후 Commit하면,
-Vercel 연결 상태에서는 자동 재배포됩니다.
+## UI QA refinements
+- Focus-visible states added
+- Input hover/focus contrast refined
+- Sticky footer shadow reduced
+- Reflection cards softened
+- Tap targets increased
+- Sidebar active state strengthened
+- Input caret uses green accent
+- Text rendering smoothing added
+
+## Recommended final QA before public sharing
+1. iPhone Safari
+2. Android Chrome
+3. Desktop Chrome/Safari
+4. Check 320–390px widths
+5. Test text overflow with long answers
+6. Test file upload
+7. Test refresh → draft restore
+8. Test final submission + CSV/JSON download
