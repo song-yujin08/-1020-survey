@@ -1332,3 +1332,45 @@ textarea:focus {
     padding-right: 18px;
   }
 }
+
+
+/* Headline wrapping rollback — restore previous version behavior */
+.hero h2 {
+  max-width: none;
+  text-wrap: wrap;
+}
+
+.section-head h2 {
+  max-width: 920px;
+  text-wrap: wrap;
+}
+
+.hero-title span {
+  display: inline;
+}
+
+@media (max-width: 980px) {
+  .hero h2 {
+    max-width: none;
+  }
+
+  .section-head h2 {
+    max-width: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero h2 {
+    max-width: none;
+  }
+
+  .section-head h2 {
+    max-width: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero h2 {
+    max-width: none;
+  }
+}
